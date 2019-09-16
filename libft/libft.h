@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   libft.h                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: maegaspa <maegaspa@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: hmichel <hmichel@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/10/10 14:57:03 by maegaspa     #+#   ##    ##    #+#       */
-/*   Updated: 2019/05/17 14:49:59 by maegaspa    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/07/29 02:10:58 by hmichel     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,6 +17,9 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <unistd.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 
 int					ft_sqrt(int nb);
 int					ft_recursive_factorial(int nb);
@@ -88,8 +91,6 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-static int			leng(long long n);
-static int			ones(long long n);
 char				*ft_lltoa(long long n);
 char				*ft_ulltoa(unsigned long long n);
 char				*ft_utoa(long long n);
