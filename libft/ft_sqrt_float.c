@@ -1,45 +1,26 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strstr.c                                      .::    .:/ .      .::   */
+/*   ft_sqrt_float.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: hmichel <hmichel@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/08/07 10:05:41 by maegaspa     #+#   ##    ##    #+#       */
-/*   Updated: 2019/09/18 01:52:19 by hmichel     ###    #+. /#+    ###.fr     */
+/*   Created: 2019/09/18 08:29:02 by hmichel      #+#   ##    ##    #+#       */
+/*   Updated: 2019/09/18 08:39:34 by hmichel     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *str, const char *to_find)
+double		ft_sqrt_double(int nb, double preci)
 {
-	int	tmp;
-	int	i;
-	int	j;
+	double	i;
 
-	i = -1;
-	if (str == NULL)
-		return (NULL);
-	if (to_find[0] == '\0')
-		return ((void *)str);
-	while (str[++i] != '\0')
-	{
-		if (str[i] == to_find[0])
-		{
-			tmp = i;
-			j = 1;
-			if (to_find[1] == '\0')
-				return ((void *)&str[i]);
-			while (str[tmp + 1] == to_find[j])
-			{
-				if (to_find[j + 1] == '\0')
-					return ((void *)&str[i]);
-				j++;
-				tmp++;
-			}
-		}
-	}
-	return (0);
+	i = 0.0;
+	if (nb <= 0)
+		return (0.0);
+	while (i * i <= nb)
+		i += preci;
+	return (i);
 }

@@ -1,0 +1,60 @@
+# **************************************************************************** #
+#                                                           LE - /             #
+#                                                               /              #
+#    Makefile_futur                                   .::    .:/ .      .::    #
+#                                                  +:+:+   +:    +:  +:+:+     #
+#    By: hmichel <hmichel@student.le-101.fr>        +:+   +:    +:    +:+      #
+#                                                  #+#   #+    #+    #+#       #
+#    Created: 2019/02/06 16:29:54 by maegaspa     #+#   ##    ##    #+#        #
+#    Updated: 2019/09/18 01:02:39 by hmichel     ###    #+. /#+    ###.fr      #
+#                                                          /                   #
+#                                                         /                    #
+# **************************************************************************** #
+
+.PHONY: all clean fclean re
+
+NAME = hmichel.filler
+CC = gcc
+FLAGS = -Wall -Wextra -Werror -g -fsanitize=address -v
+INC = includes/filler.h
+INC/LIB = libft/libft.h
+LIB = libft/libft.a
+SRC = 	src/get_next_line.c\
+		src/main.c\
+		src/parsing.c
+
+OBJ = 	src/get_next_line.o\
+		src/main.o\
+		src/parsing.o
+
+all: $(NAME)
+
+$(NAME): $(OBJ) $(INC) onlylibft
+	@echo "Je suis le boss."
+	@make -C libft/
+	@$(CC) $(FLAGS) src/get_next_line.o src/main.o src/parsing.o libft/libft.a -o $(NAME)
+	#@mv hmichel.filler ../resources_Filler/players
+	#@rm ../resources_Filler/text.log
+	#@touch ../resources_Filler/text.log
+
+object/%.o	:	%.c $(INC)
+	@$(CC) $(FLAGS) -I $(INC) -o $@ -c $< -I $(INC/LIB)
+
+clean:
+	@echo "	 ██████╗██╗     ███████╗ █████╗ ███╗   ██╗██╗███╗   ██╗ ██████╗     ███████╗██╗██╗     ██╗     ███████╗██████╗ "
+	@echo "	██╔════╝██║     ██╔════╝██╔══██╗████╗  ██║██║████╗  ██║██╔════╝     ██╔════╝██║██║     ██║     ██╔════╝██╔══██╗"
+	@echo "	██║     ██║     █████╗  ███████║██╔██╗ ██║██║██╔██╗ ██║██║  ███╗    █████╗  ██║██║     ██║     █████╗  ██████╔╝"
+	@echo "	██║     ██║     ██╔══╝  ██╔══██║██║╚██╗██║██║██║╚██╗██║██║   ██║    ██╔══╝  ██║██║     ██║     ██╔══╝  ██╔══██╗"
+	@echo "	╚██████╗███████╗███████╗██║  ██║██║ ╚████║██║██║ ╚████║╚██████╔╝    ██║     ██║███████╗███████╗███████╗██║  ██║"
+	@echo "	 ╚═════╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝╚═╝  ╚═══╝ ╚═════╝     ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝"
+	@rm -f $(OBJ)
+	@make clean -C libft/
+
+onlylibft: $(INC/LIB)
+	@make -C libft/
+
+fclean: clean
+	@rm -f $(NAME)
+	@make fclean -C libft/
+
+re: fclean all

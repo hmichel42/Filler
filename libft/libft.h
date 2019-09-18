@@ -6,7 +6,7 @@
 /*   By: hmichel <hmichel@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/10/10 14:57:03 by maegaspa     #+#   ##    ##    #+#       */
-/*   Updated: 2019/07/29 02:10:58 by hmichel     ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/09/18 08:44:28 by hmichel     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,6 +22,7 @@
 # include <fcntl.h>
 
 int					ft_sqrt(int nb);
+double				ft_sqrt_double(int nb, double preci);
 int					ft_recursive_factorial(int nb);
 void				ft_swap(int *a, int *b);
 int					*ft_range(int min, int max);

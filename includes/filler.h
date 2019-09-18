@@ -6,7 +6,7 @@
 /*   By: hmichel <hmichel@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/07/24 14:16:28 by hmichel      #+#   ##    ##    #+#       */
-/*   Updated: 2019/08/01 18:20:07 by hmichel     ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/09/18 08:57:12 by hmichel     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,28 +23,35 @@
 
 typedef struct	s_map
 {
-	int			round;
 	char		player;
+	int			**heat;
+	int			sqrt;
 	int			**map;
 	int			map_x;
 	int			map_y;
-}				t_map;
-typedef	struct	s_piece
-{
 	int			piece_x;
 	int			piece_y;
 	int			**piece;
-}				t_piece;
+	char		*gnl;
+}				t_map;
+
 int				get_next_line(const int fd, char **line);
 /*
 **	parsing.c
 */
-void			ft_initstruc(t_map *map, t_piece *piece);
-int				ft_player(t_map *map, int fd);
-int				ft_mapsize(t_map *map, int fd);
-int				ft_takemap(t_map *map, t_piece *piece, int fd);
-int				ft_piecesize(t_piece *piece, int fd, char *str);
-int				ft_takepiece(t_piece *piece, int fd);
-int				ft_parsing(t_map *map, t_piece *piece);
-
+void			ft_initstruc(t_map *map);
+int				ft_player(t_map *map);
+int				ft_mapsize(t_map *map);
+int				ft_takemap(t_map *map, int fd);
+int				ft_piecesize(t_map *map, int fd);
+int				ft_takepiece(t_map *map, int fd);
+int				ft_parsing(t_map *map, int fd);
+/*
+**	heat_map.c
+*/
+int				ft_heat_map(t_map *map);
+/*
+**	main.c
+*/
+void			ft_debug(int fd, t_map map);
 #endif

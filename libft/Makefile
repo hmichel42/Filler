@@ -6,7 +6,7 @@
 #    By: hmichel <hmichel@student.le-101.fr>        +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/10/04 18:45:14 by maegaspa     #+#   ##    ##    #+#        #
-#    Updated: 2019/06/11 09:51:27 by hmichel     ###    #+. /#+    ###.fr      #
+#    Updated: 2019/09/18 08:39:54 by hmichel     ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -85,6 +85,7 @@ ft_htoa\
 ft_hhtoa\
 ft_uhhtoa\
 ft_uhtoa\
+ft_sqrt_float
 
 SOURCE = $(addsuffix .c, $(FILES))
 
