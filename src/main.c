@@ -6,7 +6,7 @@
 /*   By: hmichel <hmichel@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/07/25 16:30:42 by hmichel      #+#   ##    ##    #+#       */
-/*   Updated: 2019/09/18 08:57:21 by hmichel     ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/09/19 02:42:25 by hmichel     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -67,16 +67,16 @@ void	ft_debug(int fd, t_map map)
 int		main(void)
 {
 	t_map		map;
+	t_point		point;
 	int			fd;
 
 	fd = open("/Users/hmichel/Documents/Filler/trace.txt", O_WRONLY | O_APPEND);
 	dprintf(fd, "\n\nDEBUT\n\n");
-	write(1, "\nOUI\n", 5);
 	ft_initstruc(&map);
 	if (!ft_player(&map))
-		return (1);	//sortie erreur
+		return (1);
 	if (!(ft_mapsize(&map)))
-		return (1);	//sortie erreur
+		return (1);
 	ft_debug(fd, map);
 	while (101 > 42)
 	{
@@ -89,6 +89,8 @@ int		main(void)
 			if (!(ft_heat_map(&map)))
 				return (1);
 		ft_debug(fd, map);
+		if (map.heat)
+			point = ft_resolve(map, fd);
 	}
 	return (0);
 }

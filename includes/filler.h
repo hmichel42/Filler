@@ -6,7 +6,7 @@
 /*   By: hmichel <hmichel@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/07/24 14:16:28 by hmichel      #+#   ##    ##    #+#       */
-/*   Updated: 2019/09/18 08:57:12 by hmichel     ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/09/19 02:42:31 by hmichel     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,6 +35,13 @@ typedef struct	s_map
 	char		*gnl;
 }				t_map;
 
+typedef	struct	s_point
+{
+	int			pos_x;
+	int			pos_y;
+	int			score;
+}				t_point;
+
 int				get_next_line(const int fd, char **line);
 /*
 **	parsing.c
@@ -51,7 +58,8 @@ int				ft_parsing(t_map *map, int fd);
 */
 int				ft_heat_map(t_map *map);
 /*
-**	main.c
+**	resolve.c
 */
-void			ft_debug(int fd, t_map map);
+t_point		ft_resolve(t_map map, int fd);
+
 #endif
